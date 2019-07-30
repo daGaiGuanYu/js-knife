@@ -18,6 +18,14 @@
 + 此项目不会在操作前进行安全检验
 + 此项目的源码不会特别大，使用前，最好读一遍
 
+## 使用
+##### 安装
+```
+npm install js-knife
+```
+##### 源码
+[传送门](https://github.com/daGaiGuanYu/js-knife/blob/master/index.js)
+
 ## 感谢贡献
 + 欢迎在 issue 里表达您的观点、不满，如果发现 bug 并提出批评，码者会更加感激
 + 如果你有自己想用而本项目没有的工具函数，欢迎在 issue 里提出
