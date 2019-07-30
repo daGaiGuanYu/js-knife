@@ -1,0 +1,24 @@
+{
+  "name": "js-knife",
+  "version": "1.0.0",
+  "description": "js-knife",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/daGaiGuanYu/js-knife.git"
+  },
+  "keywords": [
+    "javascript",
+    "knife",
+    "util"
+  ],
+  "author": "gy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/daGaiGuanYu/js-knife/issues"
+  },
+  "homepage": "https://github.com/daGaiGuanYu/js-knife#readme"
+}
