@@ -26,11 +26,37 @@ function getDaysByYearAndMonth(year, month){
   return new Date(year, month, 0).getDate();
 }
 
-// 可提前结束的 Array.forEach
+// 可提前结束的 Array.forEach（因为有 return this; 所以可以进行类似 map、filter 那种链式操作）
+// 用箭头函数时要特别注意，如果箭头函数只有一条语句且省略大括号，则此时不应该使用 foreach
 Array.prototype.foreach = function(cb){
   let len = this.length;
   for(let i=0; i<len; i++)
     if(cb(this[i])) break;
+  return this;
+}
+
+// 删除元素
+Array.prototype.deleteAt = function(index){
+  this.splice(index, 1);
+  return this;
+}
+
+// 过滤和映射
+Array.prototype.filterMap = function(cb){
+  let result = [];
+  this.foreach( item => {
+    let i = cb(item);
+    if(i)
+      result.push(i);
+  });
+  return result;
+}
+
+// 求和
+Array.prototype.sum = function(){
+  let result = 0;
+  this.forEach( item => result += item );
+  return result;
 }
 
 // 忽略大小写的 String.indexOf
@@ -46,6 +72,11 @@ String.prototype.containQ = function(target){
 // 是否包含子字符串（忽略大小写）
 String.prototype.containq = function(target){
   return this.indexof(target) > -1;
+}
+
+// 是否包含
+String.prototype.isOneOf = function(...target){
+  return target.indexOf(this.toString()) > -1;
 }
 
 module.exports = {

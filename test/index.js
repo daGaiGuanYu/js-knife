@@ -1,3 +1,6 @@
-const knife = require('js-knife');
+const knife = require('../index.js');
 
-console.log(new Date().tostring());
+let a = [1,2,3,4];
+let result = 0;
+a.foreach( item => result += item );
+console.log(result);
