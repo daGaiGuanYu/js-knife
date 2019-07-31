@@ -31,13 +31,23 @@ function getDaysByYearAndMonth(year, month){
 Array.prototype.foreach = function(cb){
   let len = this.length;
   for(let i=0; i<len; i++)
-    if(cb(this[i])) break;
+    if(cb(this[i], i)) break;
   return this;
 }
 
-// 删除元素
+// 删除元素(按 index)
 Array.prototype.deleteAt = function(index){
   this.splice(index, 1);
+  return this;
+}
+// 删除元素（按值）
+Array.prototype.deleteByValue = function(target){
+  this.foreach( (item, i) => {
+    if(item == target){
+      this.deleteAt(i);
+      return true;
+    }
+  });
   return this;
 }
 
