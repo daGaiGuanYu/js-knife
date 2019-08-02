@@ -69,6 +69,15 @@ Array.prototype.sum = function(){
   return result;
 }
 
+// zip 拉链
+Array.prototype.zip = function(target){
+  let result = [];
+  let len = this.length;
+  for(let i=0; i<len; i++)
+    result.push([this[i], target[i]])
+  return result;
+}
+
 // 忽略大小写的 String.indexOf
 String.prototype.indexof = function(target){
   return this.toLowerCase().indexOf(target.toLowerCase());
