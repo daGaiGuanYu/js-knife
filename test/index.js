@@ -1,4 +1,5 @@
 const knife = require('../index.js');
+const lodash = require('lodash');
 
-let a = [1,2,3,4];
-console.log(a.zip([2,3,4,5]))
+let result = [1,2,3,4].zip([2,3,4,5], [8,9,0,7])
+console.log(result)
