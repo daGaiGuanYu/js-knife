@@ -70,15 +70,16 @@ Array.prototype.sum = function(){
 }
 
 // zip 拉链
-Array.prototype.zip = function(...target){
-  let result = this.map( item => [item] );
-
-  let len = this.length;
-  let targetNum = target.length;
-  for(let i=0; i<targetNum; i++)
-    for(let j=0; j<len; j++)
-      result[j][i+1] = target[i][j];
-  
+Array.prototype.zip = function(){
+  let result = [];
+  let arrNum = this.length;
+  let arrLen = this[0].length;
+  for(let i=0; i<arrLen; i++){
+    let gg = [];
+    for(let j=0; j<arrNum; j++)
+      gg[j]=this[j][i];
+    result.push(gg);
+  }
   return result;
 }
 
