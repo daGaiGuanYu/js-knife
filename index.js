@@ -103,7 +103,12 @@ String.prototype.isOneOf = function(...target){
   return target.indexOf(this.toString()) > -1;
 }
 
+function getUUID(){
+  return new Date().getTime() + (Math.random()+'').slice(2);
+}
+
 module.exports = {
   setHaha,
+  getUUID,
   getDaysByYearAndMonth
 }
