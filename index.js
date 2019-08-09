@@ -29,9 +29,10 @@ function getDaysByYearAndMonth(year, month){
 // 可提前结束的 Array.forEach（因为有 return this; 所以可以进行类似 map、filter 那种链式操作）
 // 用箭头函数时要特别注意，如果箭头函数只有一条语句且省略大括号，则此时不应该使用 foreach
 Array.prototype.foreach = function(cb){
-  let len = this.length;
+  let backup = this.slice();
+  let len = backup.length;
   for(let i=0; i<len; i++)
-    if(cb(this[i], i)) break;
+    if(cb(backup[i], i)) break;
   return this;
 }
 
@@ -47,6 +48,18 @@ Array.prototype.deleteByValue = function(target){
       this.deleteAt(i);
       return true;
     }
+  });
+  return this;
+}
+
+// 删除元素们（按值）
+Array.prototype.deleteByValues = function(target){
+  let map = new Map();
+  target.forEach( (value, index) => map.set(value,index) );
+
+  this.forEach( (item, i) => {
+    if(map.get(item))
+      this.deleteAt(i);
   });
   return this;
 }
@@ -104,7 +117,7 @@ String.prototype.isOneOf = function(...target){
 }
 
 function getUUID(){
-  return new Date().getTime() + (Math.random()+'').slice(2);
+  return '' + new Date().getTime() + Math.random();
 }
 
 module.exports = {
