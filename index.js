@@ -54,13 +54,11 @@ Array.prototype.deleteByValue = function(target){
 
 // 删除元素们（按值）
 Array.prototype.deleteByValues = function(target){
-  let map = new Map();
-  target.forEach( (value, index) => map.set(value,index) );
-
-  this.forEach( (item, i) => {
-    if(map.get(item))
-      this.deleteAt(i);
-  });
+  let tar = new Set(target);
+  for(let i = this.length-1; i>-1; i--){
+    if(tar.has(this[i]))
+      this.splice(i, 1);
+  }
   return this;
 }
 
