@@ -104,7 +104,22 @@ function getUUID(){
   return '' + new Date().getTime() + Math.random();
 }
 
+const oneTimeDataContainer = {};
+const oneTimeData = {
+  get(key){
+    let result = oneTimeDataContainer[key];
+    delete oneTimeDataContainer[key];
+    return result;
+  },
+  put(key, value){
+    if(oneTimeDataContainer[key])
+      console.log('已覆盖一次性数据：', key);
+      oneTimeDataContainer[key] = value
+  }
+}
+
 module.exports = {
   getUUID,
+  oneTimeData,
   getDaysByYearAndMonth
 }

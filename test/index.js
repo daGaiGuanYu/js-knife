@@ -1,3 +1,6 @@
 const knife = require('../index.js');
 
-console.log(new Date().tostring(true, ' ', '+', '='));
+knife.oneTimeData.put('name', 1);
+knife.oneTimeData.put('name', 2);
+console.log(knife.oneTimeData.get('name'));
+console.log(knife.oneTimeData.get('name'));
